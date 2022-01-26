@@ -1,11 +1,18 @@
 import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
+import bodyParser from 'body-parser';
+import helmet from 'helmet';
+import morgan from 'morgan';
 import { groomer } from '../test/data.js';
 
 
 const app = express();
 app.use(cors());
+app.use(helmet());
+app.use(bodyParser.json());
+app.use(morgan('combined'));
+
 app.get('/profile', (req, res) => {
     console.log('get request received');
     return res.send(Object.values(groomer));
