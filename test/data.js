@@ -175,19 +175,16 @@ const McNallyAccount = () => {
 
 export const ProfileOne = () => {
     return ({
-        id: "1",
+        id: "0",
+        firstName: "Master",
+        lastName: "Defender",
+        email: "tyler",//"theOneTrue@groom.com",
+        phone: [{
+                phoneNumber: "(573) 334 - 9666",
+                phoneType: "Cell",
+                textable: true
+            }],
         isPaid: true,
-        personalInfo: {
-            id: "0",
-            firstName: "Master",
-            lastName: "Defender",
-            email: "theOneTrue@groom.com",
-            phone: [{
-                    phoneNumber: "(573) 334 - 9666",
-                    phoneType: "Cell",
-                    textable: true
-                }]
-        },
         accounts: [TuschhoffAccount(), McNallyAccount()]
     });
 }

@@ -5,8 +5,9 @@ import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import { ProfileOne } from '../test/data.js';
-import {startDatabase} from './database/mongo.mjs';
-import {insertProfile, getProfiles} from './database/profile.mjs';
+import {startDatabase, initializeTestDB, profiles} from './database/mongo.mjs';
+import {insertProfile, getProfiles, getProfileByEmail} from './database/profile.mjs';
+import {validateEmailPassword} from "./login/loginService.js";
 
 // npm run start from root directory to begin hot-swapping server
 
@@ -16,8 +17,19 @@ app.use(helmet());
 app.use(bodyParser.json());
 app.use(morgan('combined'));
 
-app.post('/login', (req, res) => {
-    return res.send(ProfileOne());
+app.post('/login', async (req, res) => {
+    const {email,password} = req.body;
+    try{
+        if(validateEmailPassword(email, password)){
+            const data = await getProfileByEmail(email);
+            console.log(data);
+            return res.send(data);
+        }
+    } catch (e) {
+        console.log('sumethin\'s fishy');
+        console.log(e);
+        return res.status(401).send({ errMessage: e });
+    }
 })
 
 app.get('/profile', (req, res) => {
@@ -45,4 +57,6 @@ startDatabase().then(async() => {
         console.log('setup the server stuff goes here...');
         console.log(`listening on port ${process.env.PORT}`)
     });
+
+    initializeTestDB();
 });
