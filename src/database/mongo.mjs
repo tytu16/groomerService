@@ -4,8 +4,8 @@ import { MongoClient } from "mongodb";
 let database = null;
 
 async function startDatabase() {
-    const mongo = new MongoMemoryServer();
-    const mongoDBURL = await mongo.getConnectionString();
+    const mongo = await MongoMemoryServer.create();
+    const mongoDBURL = mongo.getUri();
     const connection = await MongoClient.connect(mongoDBURL, {useNewUrlParser: true});
     database = connection.db();
 }
@@ -15,7 +15,7 @@ async function getDatabase() {
     return database;
 }
 
-module.exports = {
+export {
     getDatabase,
     startDatabase
 }

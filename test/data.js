@@ -1,100 +1,193 @@
-export const profileResponse = {
-    "id": 1,
-    "firstName": "Lenn",
-    "lastName": "MacAnnaly",
-    "clients": [
-        {
-            "id": 1,
-            "familyName": "The Three Stooges",
-            "humans": [
-                {
-                    "id": 1,
-                    "firstName": "Larry",
-                    "lastName": "Stooge"
-                },
-                {
-                    "id": 2,
-                    "firstName": "Harry",
-                    "lastName": "Stooge"
-                },
-                {
-                    "id": 3,
-                    "firstName": "Mo",
-                    "lastName": "Stooge",
-                }
-            ],
-            "pets": [
-                {
-                    "id": 1,
-                    "name": "Barkins",
-                    "breed": "Mutt",
-                    "sex": "male"
-                },
-                {
-                    "id": 2,
-                    "name": "Stumpy",
-                    "breed": "Bulldog",
-                    "sex": "male"
-                },
-                {
-                    "id": 3,
-                    "name": "Boomer",
-                    "breed": "yorky",
-                    "sex": "female"
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "familyName": "The Addams Family",
-            "humans": [
-                {
-                    "id": 1,
-                    "firstName": "Morticia",
-                    "lastName": "Addams"
-                },
-                {
-                    "id": 2,
-                    "firstName": "Gomez",
-                    "lastName": "Addams"
-                },
-                {
-                    "id": 3,
-                    "firstName": "Wednesday",
-                    "lastName": "Addams"
-                },
-                {
-                    "id": 4,
-                    "firstName": "Pugsley",
-                    "lastName": "Addams"
-                }
-            ],
-            "pets": [
-                {
-                    "id": 1,
-                    "name": "Cousin Itt",
-                    "breed": "Komondor",
-                    "sex": "unknown"
-                },
-                {
-                    "id": 2,
-                    "name": "kitty kat",
-                    "breed": "lion",
-                    "sex": "female"
-                },
-                {
-                    "id": 3,
-                    "name": "snappy",
-                    "breed": "alligator",
-                    "se": "male"
-                }
-            ]
-        }
-    ]
+const TuschhoffAccount = () => {
+    return ({
+        "id": "0",
+        "accountName": "Tuschhoffs",
+        "addressOne": "363",
+        "addressTwo": "Crown Pt",
+        "addressCity": "Columbia",
+        "addressState": "MO",
+        "addressZip": "65203",
+        "garageCd": "",
+        "person": [
+            {
+                "id": "0",
+                "isPrimary": true,
+                "firstName": "Tessa",
+                "lastName": "Tuschhoff",
+                "email": "tesnic2336@yahoo.com",
+                "phone": [
+                    {
+                        "id": "0",
+                        "phoneNumber": "(573) 587 - 1541",
+                        "phoneType": "Cell",
+                        "textable": true
+                    }
+                ],
+                "note": [
+                    {
+                        "id": "0",
+                        "label": "Occupation",
+                        "message": "Librarian"
+                    }
+                ]
+            },
+            {
+                "id": "1",
+                "isPrimary": false,
+                "firstName": "Tyler",
+                "lastName": "Tuschhoff",
+                "email": "ttuschhoff11@gmail.com",
+                "phone": [
+                    {
+                        "id": "0",
+                        "phoneNumber": "(573) 275 - 2610",
+                        "phoneType": "Cell",
+                        "textable": true
+                    },
+                    {
+                        "id": "1",
+                        "phoneNumber": "(573) 334 - 4341",
+                        "phoneType": "Home",
+                        "textable": false
+                    }
+                ],
+                "note": [
+                    {
+                        "id": "0",
+                        "label": "Works from home",
+                        "message": "...in his underwear"
+                    }
+                ]
+            }
+        ],
+        "pet": [
+            {
+                "id": "0",
+                "name": "Jiji",
+                "breed": "Maine Coon",
+                "maleFemale": "Male",
+                "weight": "14.4",
+                "wUnits": "lb",
+                "ageYr": "1",
+                "ageMn": "4",
+                "dateEntered": "1/30/2022",
+                "note": [
+                    {
+                        "id": "0",
+                        "label": "Biig Kittty",
+                        "message": ""
+                    }
+                ]
+            }
+        ],
+        "note": [
+            {
+                "id": "0",
+                "label": "Front door doesn't latch",
+                "message": ""
+            }
+        ]
+    });
 }
 
-export const groomer = {
-    id: 1,
-    name: "Lann Mekannely",
-    animals: "dogs"
+
+const McNallyAccount = () => {
+    return ({
+        "id": "1",
+        "accountName": "McNally",
+        "addressOne": "3535 Dana Dr",
+        "addressTwo": "",
+        "addressCity": "Jackson",
+        "addressState": "MO",
+        "addressZip": "63755",
+        "garageCd": "2517",
+        "person": [
+            {
+                "id": "0",
+                "isPrimary": true,
+                "firstName": "Lynn",
+                "lastName": "McNally",
+                "email": "lynnmc@outlook.com",
+                "phone": [
+                    {
+                        "id": "0",
+                        "phoneNumber": "(573) 334 - 9666",
+                        "phoneType": "Cell",
+                        "textable": true
+                    }
+                ],
+                "note": [
+                    {
+                        "id": "0",
+                        "label": "Dog Groomer",
+                        "message": ""
+                    }
+                ]
+            }
+        ],
+        "pet": [
+            {
+                "id": "0",
+                "name": "Mya",
+                "breed": "Quicksy",
+                "maleFemale": "Female",
+                "weight": "30",
+                "wUnits": "lb",
+                "ageYr": "15",
+                "ageMn": "0",
+                "dateEntered": "1/30/2022",
+                "note": [
+                    {
+                        "id": "0",
+                        "label": "Old, sweet, smart",
+                        "message": ""
+                    }
+                ]
+            },
+            {
+                "id": "1",
+                "name": "Coda",
+                "breed": "Sheepish",
+                "maleFemale": "Male",
+                "weight": "50",
+                "wUnits": "lb",
+                "ageYr": "8",
+                "ageMn": "0",
+                "dateEntered": "1/30/2022",
+                "note": [
+                    {
+                        "id": "0",
+                        "label": "No bubble",
+                        "message": "Scared of everything"
+                    }
+                ]
+            }
+        ],
+        "note": [
+            {
+                "id": "0",
+                "label": "Dogs will run out",
+                "message": ""
+            }
+        ]
+    });
+}
+
+export const ProfileOne = () => {
+    return ({
+        id: "1",
+        isPaid: true,
+        personalInfo: {
+            id: "0",
+            firstName: "Master",
+            lastName: "Defender",
+            email: "theOneTrue@groom.com",
+            phone: [{
+                    phoneNumber: "(573) 334 - 9666",
+                    phoneType: "Cell",
+                    textable: true
+                }]
+        },
+        accounts: [TuschhoffAccount(), McNallyAccount()]
+    });
 }
