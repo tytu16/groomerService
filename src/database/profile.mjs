@@ -7,10 +7,10 @@ const profiles = new Map();
 
 async function insertProfile(profile){
     const database = await getDatabase();
+    console.log('inserting profile into database');
     const {insertedId} = await database.collection(collectionName).insertOne(profile);
+    console.log(`profile inserted with id ${insertedId}`);
     profiles.set(profile.email,insertedId);
-    console.log(profiles);
-    console.log('new profiles above');
     return insertedId;
 }
 
@@ -21,9 +21,15 @@ async function getProfiles(){
 
 async function getProfileByEmail(email){
   console.log(`retrieving new profile by email: ${email}`);
-  const mongoId = profiles.get(email);
-  console.log(mongoId);
-  return await getProfileById(mongoId);
+  try{
+    const mongoId = profiles.get(email);
+    console.log(mongoId);
+    return await getProfileById(mongoId);
+  } catch(e){
+    console.log('error getting profile');
+    console.log(e);
+  }
+
 }
 
 async function getProfileById(id){
@@ -31,7 +37,11 @@ async function getProfileById(id){
     return await database.collection(collectionName).findOne({_id: new ObjectId(id)});
 }
 
-async function deleteProfile(id) {
+async function deleteProfileByEmail(email){
+
+}
+
+async function deleteProfileById(id) {
     const database = await getDatabase();
     await database.collection(collectionName).deleteOne({
       _id: new ObjectID(id),
@@ -57,5 +67,6 @@ export {
     getProfileByEmail,
     getProfileById,
     updateProfile,
-    deleteProfile
+    deleteProfileById,
+    deleteProfileByEmail
 }

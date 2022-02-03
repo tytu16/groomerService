@@ -4,9 +4,8 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import { ProfileOne } from '../test/data.js';
-import {startDatabase, initializeTestDB, profiles} from './database/mongo.mjs';
-import {insertProfile, getProfiles, getProfileByEmail} from './database/profile.mjs';
+import {startDatabase, initializeTestDB} from './database/mongo.mjs';
+import {getProfileByEmail} from './database/profile.mjs';
 import {validateEmailPassword} from "./login/loginService.js";
 
 // npm run start from root directory to begin hot-swapping server

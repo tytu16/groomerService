@@ -4,7 +4,6 @@ import {insertProfile} from "./profile.mjs";
 import { ProfileOne } from "../../test/data.js";
 
 let database = null;
-let profiles = new Map();
 
 async function startDatabase() {
     const mongo = await MongoMemoryServer.create();
@@ -19,13 +18,11 @@ async function getDatabase() {
 }
 
 async function initializeTestDB(){
-    const insertId = insertProfile(ProfileOne());
-    profiles.set(ProfileOne().id, insertId);
+    insertProfile(ProfileOne());
 }
 
 export {
     getDatabase,
     startDatabase,
-    initializeTestDB,
-    profiles
+    initializeTestDB
 }
